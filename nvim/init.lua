@@ -1,14 +1,7 @@
-require('plugins')
+-- TODO: all that is below is taken from somewhere, cleanup
+-- it's messy too, doc it all and remove all that's not used
 
-require("nightfox").setup({
-    specs = {
-        all = {
-            syntax = {
-                builtin0 = "magenta.base"
-            }
-        }
-    }
-})
+require('plugins')
 
 -- TODO:
 -- let mapleader=" "
@@ -16,7 +9,24 @@ require("nightfox").setup({
 
 vim.o.termguicolors = true
 vim.o.background = 'dark'
-vim.cmd 'colorscheme nightfox'
+vim.opt.number = false
+vim.opt.relativenumber = false
+
+require('lualine').setup({
+    options = {
+        theme = 'auto'
+    },
+    sections = {
+        lualine_c = {
+            {
+                'filename',
+                path = 1
+            },
+            'lsp_progress'
+        }
+    }
+})
+vim.opt.laststatus = 0
 
 vim.g.code_action_menu_window_border = 'rounded'
 vim.g.code_action_menu_show_details = false
