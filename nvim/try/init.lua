@@ -136,3 +136,5 @@ cmp.setup({
         ['<Enter>'] = cmp.mapping.confirm(),
     }
 })
+
+-- vim.keymap.set('n', '<Space>w', ':w<CR>:source $MYVIMRC<CR>', { noremap = true, silent = true })

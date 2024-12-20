@@ -9,11 +9,24 @@
 -- remove line numbers on side
 vim.opt.number = false
 
--- remove status bar on bottom
-vim.opt.laststatus = 0
-
 -- hide ~ ~ on non used lines
 vim.opt.fillchars:append({ eob = " " })
 
--- reload config with space+f
-vim.keymap.set('n', '<Space>w', ':w<CR>:source $MYVIMRC<CR>', { noremap = true, silent = true })
+-- save and reload nvim config or just save
+vim.keymap.set('n', '<Space>w', function()
+  -- Save the current file
+  vim.cmd('write')
+
+  -- Get the current file name
+  local current_file = vim.fn.expand('%:t')
+
+  -- Source the config only if we're in init.lua
+  if current_file == 'init.lua' then
+      vim.cmd('source $MYVIMRC')
+  end
+end, { noremap = true, silent = true })
+
+
+-- remove status bar on bottom
+vim.opt.laststatus = 0
+
