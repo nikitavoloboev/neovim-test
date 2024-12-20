@@ -1,5 +1,11 @@
 -- TODO: all that is below is taken from somewhere, cleanup
 -- it's messy too, doc it all and remove all that's not used
+-- TODO: after comment, on next line it starts comment, how to easy remove it
+-- TODO: hide status bar on bottom
+-- TODO: remove line numbers
+-- TODO: get ghostty theme that is github theme like in cursor. same for neovim (should be identical) 
+-- TODO: bind to reload current nvim editor instance from config. to fast iterate
+
 
 require('plugins')
 
@@ -9,8 +15,9 @@ require('plugins')
 
 vim.o.termguicolors = true
 vim.o.background = 'dark'
+
+-- TODO: does not work
 vim.opt.number = false
-vim.opt.relativenumber = false
 
 require('lualine').setup({
     options = {
