@@ -6,19 +6,20 @@
 -- TODO: get ghostty theme that is github theme like in cursor. same for neovim (should be identical) 
 -- TODO: bind to reload current nvim editor instance from config. to fast iterate
 
-
 require('plugins')
 
--- TODO:
+-- TODO: setup `space + leader` for diff things
 -- let mapleader=" "
 -- let maplocalleader=" "
 
+-- TODO: not sure if needed
 vim.o.termguicolors = true
 vim.o.background = 'dark'
 
 -- TODO: does not work
 vim.opt.number = false
 
+-- TODO: what
 require('lualine').setup({
     options = {
         theme = 'auto'
@@ -34,10 +35,8 @@ require('lualine').setup({
     }
 })
 vim.opt.laststatus = 0
-
 vim.g.code_action_menu_window_border = 'rounded'
 vim.g.code_action_menu_show_details = false
-
 vim.api.nvim_create_autocmd(
     {"BufRead", "BufNewFile"},
     {
@@ -51,7 +50,6 @@ vim.api.nvim_create_autocmd(
         end
     }
 )
-
 vim.api.nvim_create_autocmd(
     {"BufRead", "BufNewFile"},
     {
@@ -63,7 +61,6 @@ vim.api.nvim_create_autocmd(
         end
     }
 )
-
 vim.o.ruler = true
 vim.o.showtabline = 1
 vim.o.backspace = 'indent,eol,start'
@@ -87,16 +84,11 @@ vim.o.signcolumn = 'yes'
 vim.o.hlsearch = false
 vim.o.pumheight = 15
 vim.o.langmap = 'ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz'
-
 require('keybindings')
-
 require('ibl').setup {
 }
-
 require("scrollbar").setup()
-
 require('lsp')
-
 require('lualine').setup({
     options = {
         theme = 'auto'
@@ -111,7 +103,6 @@ require('lualine').setup({
         }
     }
 })
-
 vim.keymap.set(
     'n',
     '<C-l>',
@@ -122,9 +113,7 @@ vim.keymap.set(
         silent = true
     }
 )
-
 local cmp = require('cmp')
-
 cmp.setup({
     enabled = true,
     sources = {
