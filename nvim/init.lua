@@ -26,7 +26,10 @@ vim.keymap.set('n', '<Space>w', function()
   end
 end, { noremap = true, silent = true })
 
-
 -- remove status bar on bottom
 vim.opt.laststatus = 0
+vim.opt.statusline = ""
+vim.opt.cmdheight = 0
 
+-- make y copy to system clipboard
+vim.opt.clipboard = "unnamedplus"
