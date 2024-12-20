@@ -1,26 +1,19 @@
--- can see try/init.lua for various things
--- below is my actual config as is now
-
--- TODO: hide status bar on bottom
--- TODO: remove line numbers
--- TODO: get ghostty theme that is github theme like in cursor. same for neovim (should be identical)
--- TODO: bind to reload current nvim editor instance from config. to fast iterate
-
 -- remove line numbers on side
 vim.opt.number = false
 
 -- hide ~ ~ on non used lines
 vim.opt.fillchars:append({ eob = " " })
 
--- save and reload nvim config or just save
+-- save and reload nvim config (if saving `init.lua` or just save)
+-- TODO: prob should consider full path
 vim.keymap.set('n', '<Space>w', function()
-  -- Save the current file
+  -- save current file
   vim.cmd('write')
 
-  -- Get the current file name
+  -- get current file name
   local current_file = vim.fn.expand('%:t')
 
-  -- Source the config only if we're in init.lua
+  -- source config only if we're in init.lua
   if current_file == 'init.lua' then
       vim.cmd('source $MYVIMRC')
   end
